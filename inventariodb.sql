@@ -1,1 +1,1 @@
-herramientaCREATE DATABASE inventariodb;
+CREATE DATABASE inventariodb;

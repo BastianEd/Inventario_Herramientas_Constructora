@@ -1,6 +1,6 @@
 package com.constructora.inventario.service;
 
-import com.constructora.inventario.model.Trabajador;
+import com.constructora.inventario.model.trabajador;
 import com.constructora.inventario.repository.TrabajadorRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
@@ -15,15 +15,15 @@ public class TrabajadorService {
         this.repo = repo;
     }
 
-    public Trabajador guardar(Trabajador trabajador) {
+    public trabajador guardar(trabajador trabajador) {
         return repo.save(trabajador);
     }
 
-    public List<Trabajador> listar() {
+    public List<trabajador> listar() {
         return repo.findAll();
     }
 
-    public Trabajador actualizar(Long id, Trabajador trabajador) {
+    public trabajador actualizar(Long id, trabajador trabajador) {
         if (!repo.existsById(id)) {
             throw new EntityNotFoundException("Trabajador no encontrado");
         }

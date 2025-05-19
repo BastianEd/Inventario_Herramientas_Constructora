@@ -1,6 +1,6 @@
 package com.constructora.inventario.controller;
 
-import com.constructora.inventario.model.Trabajador;
+import com.constructora.inventario.model.trabajador;
 import com.constructora.inventario.service.TrabajadorService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,17 +18,17 @@ public class TrabajadorController {
     }
 
     @PostMapping
-    public ResponseEntity<Trabajador> crear(@RequestBody Trabajador nuevoTrabajador) {
+    public ResponseEntity<trabajador> crear(@RequestBody trabajador nuevoTrabajador) {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.guardar(nuevoTrabajador));
     }
 
     @GetMapping
-    public List<Trabajador> listar() {
+    public List<trabajador> listar() {
         return service.listar();
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Trabajador> actualizar(@PathVariable Long id, @RequestBody Trabajador trabajador) {
+    public ResponseEntity<trabajador> actualizar(@PathVariable Long id, @RequestBody trabajador trabajador) {
         return ResponseEntity.ok(service.actualizar(id, trabajador));
     }
 

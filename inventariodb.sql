@@ -1,0 +1,1 @@
+herramientaCREATE DATABASE inventariodb;

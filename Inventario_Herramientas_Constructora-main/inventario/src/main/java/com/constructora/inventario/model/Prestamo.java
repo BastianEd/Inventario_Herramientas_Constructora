@@ -13,7 +13,12 @@ public class Prestamo {
     @JoinColumn(name = "herramienta_id")
     private Herramienta herramienta;
 
-    private Long trabajadorId; // ID del trabajador que solicita el préstamo
+    @ManyToOne
+    @JoinColumn(name = "trabajador_id") // Asegúrate de que el nombre de la columna sea correcto
+    private Trabajador trabajador;
+
+
+    //private Long trabajadorId; // ID del trabajador que solicita el préstamo
     private String fechaPrestamo;
     private String fechaDevolucion;
 
@@ -34,12 +39,15 @@ public class Prestamo {
         this.herramienta = herramienta;
     }
 
-    public Long getTrabajadorId() {
-        return trabajadorId;
+    public Trabajador getTrabajador() {
+        return trabajador;
     }
+//    public Long getTrabajadorId() {
+//        return trabajadorId;
+//    }
 
-    public void setTrabajadorId(Long trabajadorId) {
-        this.trabajadorId = trabajadorId;
+    public void setTrabajadorId(Trabajador trabajador) {
+        this.trabajador = trabajador;
     }
 
     public String getFechaPrestamo() {

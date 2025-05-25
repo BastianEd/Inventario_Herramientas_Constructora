@@ -10,9 +10,7 @@ public class Inventario {
     private Long id;
 
     private int stock;
-
     private int prestadas;
-
     private int daniadas;
 
     public Inventario() {

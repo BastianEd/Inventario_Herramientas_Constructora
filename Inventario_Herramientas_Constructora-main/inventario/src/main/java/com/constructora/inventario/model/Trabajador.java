@@ -1,6 +1,8 @@
 package com.constructora.inventario.model;
 
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.List;
 
 @Entity
 @Table(name = "trabajador")
@@ -11,6 +13,10 @@ public class Trabajador {
 
     private String nombre;
     private String cargo;
+
+    @JsonIgnore // Evita la serialización de la colección
+    @OneToMany(mappedBy = "trabajador", fetch = FetchType.EAGER) // Relación con Prestamo
+    private List<Prestamo> prestamos;
 
     // Getters y Setters
     public Long getId() {
@@ -35,5 +41,12 @@ public class Trabajador {
 
     public void setCargo(String cargo) {
         this.cargo = cargo;
+    }
+
+    public List<Prestamo> getPrestamos() {
+        return prestamos;
+    }
+    public void setPrestamos(List<Prestamo> prestamos) {
+        this.prestamos = prestamos;
     }
 }

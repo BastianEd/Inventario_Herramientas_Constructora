@@ -10,22 +10,16 @@ public class CategoriaHerramienta {
     private Long id;
 
     private String tipo;
-
     private String marca;
-
     private int anioAntiguedad;
 
-    public CategoriaHerramienta() {
+    // Getters y Setters
+    public Long getId() {
+        return id;
     }
 
-    public CategoriaHerramienta(String tipo, String marca, int anioAntiguedad) {
-        this.tipo = tipo;
-        this.marca = marca;
-        this.anioAntiguedad = anioAntiguedad;
-    }
-
-    public Long getId(Long id) {
-        return this.id;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTipo() {

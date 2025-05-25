@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/categorias")
+@RequestMapping("/api/v1/categorias-herramientas")
 public class CategoriaHerramientaController {
     private final CategoriaHerramientaService service;
 
@@ -27,9 +27,9 @@ public class CategoriaHerramientaController {
         return service.listar();
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<CategoriaHerramienta> actualizar(@PathVariable Long id, @RequestBody CategoriaHerramienta categoria) {
-        return ResponseEntity.ok(service.actualizar(id, categoria));
+    @GetMapping("/{id}")
+    public ResponseEntity<CategoriaHerramienta> obtenerPorId(@PathVariable Long id) {
+        return ResponseEntity.ok(service.obtenerPorId(id));
     }
 
     @DeleteMapping("/{id}")

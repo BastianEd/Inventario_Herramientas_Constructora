@@ -15,8 +15,9 @@ public class Trabajador {
     private String cargo;
 
     @JsonIgnore // Evita la serialización de la colección
-    @OneToMany(mappedBy = "trabajador", fetch = FetchType.EAGER) // Relación con Prestamo
+    @OneToMany(mappedBy = "trabajador", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Prestamo> prestamos;
+
 
     // Getters y Setters
     public Long getId() {
@@ -46,6 +47,7 @@ public class Trabajador {
     public List<Prestamo> getPrestamos() {
         return prestamos;
     }
+
     public void setPrestamos(List<Prestamo> prestamos) {
         this.prestamos = prestamos;
     }

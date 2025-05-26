@@ -19,7 +19,8 @@ public class HerramientaController {
 
     @PostMapping
     public ResponseEntity<Herramienta> crear(@RequestBody Herramienta nuevaHerramienta) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(service.guardar(nuevaHerramienta));
+        Herramienta herramientaCreada = service.guardar(nuevaHerramienta);
+        return ResponseEntity.status(HttpStatus.CREATED).body(herramientaCreada);
     }
 
     @GetMapping
@@ -36,5 +37,17 @@ public class HerramientaController {
     public ResponseEntity<Void> eliminar(@PathVariable Long id) {
         service.eliminar(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping("/{id}/prestar")
+    public ResponseEntity<Void> prestar(@PathVariable Long id) {
+        service.prestarHerramienta(id);
+        return ResponseEntity.ok().build();
+    }
+
+    @PostMapping("/{id}/devolver")
+    public ResponseEntity<Void> devolver(@PathVariable Long id) {
+        service.devolverHerramienta(id);
+        return ResponseEntity.ok().build();
     }
 }

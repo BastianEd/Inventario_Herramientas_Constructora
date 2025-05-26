@@ -32,6 +32,17 @@ public class CategoriaHerramientaController {
         return ResponseEntity.ok(service.obtenerPorId(id));
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<CategoriaHerramienta> actualizar(@PathVariable Long id, @RequestBody CategoriaHerramienta categoriaActualizada) {
+        CategoriaHerramienta categoria = service.obtenerPorId(id); // Obtener la categoría existente
+        categoria.setTipo(categoriaActualizada.getTipo());
+        categoria.setMarca(categoriaActualizada.getMarca());
+        categoria.setAnioAntiguedad(categoriaActualizada.getAnioAntiguedad());
+
+        CategoriaHerramienta categoriaGuardada = service.guardar(categoria); // Guardar los cambios
+        return ResponseEntity.ok(categoriaGuardada);
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable Long id) {
         service.eliminar(id);

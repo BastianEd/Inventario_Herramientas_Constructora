@@ -51,5 +51,6 @@ public class Inventario {
     }
 
     public void setId(Long id) {
+        this.id = id;
     }
 }

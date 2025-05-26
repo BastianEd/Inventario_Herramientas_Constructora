@@ -18,22 +18,34 @@ public class PrestamoController {
     }
 
     @PostMapping
-    public ResponseEntity<Prestamo> crear(@RequestBody Prestamo nuevoPrestamo) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(service.guardar(nuevoPrestamo));
+    public ResponseEntity<Prestamo> crearPrestamo(@RequestParam Long herramientaId, @RequestParam Long trabajadorId) {
+        Prestamo prestamoCreado = service.crearPrestamo(herramientaId, trabajadorId);
+        return ResponseEntity.status(HttpStatus.CREATED).body(prestamoCreado);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Prestamo> actualizarPrestamo(@PathVariable Long id, @RequestBody Prestamo prestamo) {
+        Prestamo prestamoActualizado = service.actualizarPrestamo(id, prestamo);
+        return ResponseEntity.ok(prestamoActualizado);
+    }
+
+
+
+
+    @PostMapping("/{id}/devolver")
+    public ResponseEntity<Void> devolverPrestamo(@PathVariable Long id) {
+        service.devolverPrestamo(id);
+        return ResponseEntity.ok().build();
+    }
+
 
     @GetMapping
-    public List<Prestamo> listar() {
-        return service.listar();
-    }
-
-    @PutMapping("/{id}/devolver")
-    public ResponseEntity<Prestamo> devolver(@PathVariable Long id) {
-        return ResponseEntity.ok(service.devolver(id));
+    public List<Prestamo> listarPrestamos() {
+        return service.listarPrestamos();
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminar(@PathVariable Long id) {
+    public ResponseEntity<Void> eliminarPrestamo(@PathVariable Long id) {
         service.eliminar(id);
         return ResponseEntity.noContent().build();
     }

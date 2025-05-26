@@ -18,8 +18,7 @@ public class Herramienta {
     @JoinColumn(name = "categoria_id") // Nombre de la columna en la tabla herramienta
     private CategoriaHerramienta categoria;
 
-
-// Getters y Setters
+    // Getters y Setters
     public Long getId() {
         return id;
     }

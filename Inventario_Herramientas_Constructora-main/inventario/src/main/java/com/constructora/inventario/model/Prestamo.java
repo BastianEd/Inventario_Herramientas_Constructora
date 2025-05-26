@@ -1,6 +1,7 @@
 package com.constructora.inventario.model;
 
 import jakarta.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "prestamo")
@@ -10,15 +11,13 @@ public class Prestamo {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "herramienta_id")
+    @JoinColumn(name = "herramienta_id", nullable = false)
     private Herramienta herramienta;
 
     @ManyToOne
-    @JoinColumn(name = "trabajador_id") // Asegúrate de que el nombre de la columna sea correcto
+    @JoinColumn(name = "trabajador_id", nullable = false)
     private Trabajador trabajador;
 
-
-    //private Long trabajadorId; // ID del trabajador que solicita el préstamo
     private String fechaPrestamo;
     private String fechaDevolucion;
 
@@ -42,11 +41,8 @@ public class Prestamo {
     public Trabajador getTrabajador() {
         return trabajador;
     }
-//    public Long getTrabajadorId() {
-//        return trabajadorId;
-//    }
 
-    public void setTrabajadorId(Trabajador trabajador) {
+    public void setTrabajador(Trabajador trabajador) {
         this.trabajador = trabajador;
     }
 

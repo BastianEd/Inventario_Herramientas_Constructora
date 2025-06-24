@@ -24,7 +24,16 @@ public class CategoriaHerramientaService {
     }
 
     public CategoriaHerramienta obtenerPorId(Long id) {
-        return repo.findById(id).orElseThrow(() -> new EntityNotFoundException("Categoría de herramienta no encontrada"));
+        return repo.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Categoría de herramienta no encontrada"));
+    }
+
+    public CategoriaHerramienta actualizar(Long id, CategoriaHerramienta categoriaHerramienta) {
+        if (!repo.existsById(id)) {
+            throw new EntityNotFoundException("Categoría de herramienta no encontrada");
+        }
+        categoriaHerramienta.setId(id);
+        return repo.save(categoriaHerramienta);
     }
 
     public void eliminar(Long id) {

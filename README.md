@@ -66,3 +66,30 @@ Sigue estos pasos para poner en marcha el proyecto en tu entorno local:
 ```bash
 git clone https://github.com/BastianEd/Inventario_Herramientas_Constructora.git
 cd Inventario_Herramientas_Constructora-main
+```
+
+## 2. Configuración de la Base de Datos MySQL
+Crear la Base de Datos: Abre tu cliente MySQL (MySQL Workbench, línea de comandos, etc.) y ejecuta el siguiente comando para crear la base de datos:
+      CREATE DATABASE IF NOT EXISTS inventario_db;
+      CREATE DATABASE IF NOT EXISTS inventariodb_dev;
+      CREATE DATABASE IF NOT EXISTS inventariodb_test;
+
+
+
+## Configurar Credenciales: 
+   Abre el archivo src/main/resources/application.properties y configura las credenciales de tu base de datos:
+      spring.datasource.url=jdbc:mysql://localhost:3306/inventario_db
+      spring.datasource.username=tu_usuario_mysql
+      spring.datasource.password=tu_contraseña_mysql
+      spring.jpa.hibernate.ddl-auto=update
+      spring.jpa.show-sql=true
+      spring.jpa.properties.hibernate.format_sql=true
+
+   Reemplaza tu_usuario_mysql y tu_contraseña_mysql con tus credenciales.
+##📚 Documentación de la API (Swagger UI)
+   Una vez que la aplicación esté en ejecución, puedes acceder a la documentación interactiva de la API a través de Swagger UI en tu navegador:
+            http://localhost:8080/swagger-ui.html
+   Aquí podrás ver todos los endpoints disponibles, sus parámetros, modelos de respuesta y probar las solicitudes directamente.
+
+##Desarrollado con ❤️ por Los Pulentos (Ignacio, Bastian, Nicolas, Vicente y Juan)
+   

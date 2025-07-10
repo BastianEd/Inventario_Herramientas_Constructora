@@ -65,5 +65,5 @@ Sigue estos pasos para poner en marcha el proyecto en tu entorno local:
 
 ```bash
 git clone https://github.com/BastianEd/Inventario_Herramientas_Constructora.git
-cd Inventario_Herramientas_Constructora-main
+cd Inventario_Herramientas_Constructora
 
